@@ -10,88 +10,89 @@ First, you will need to run **Metro**, the JavaScript build tool for React Nativ
 
 To start the Metro dev server, run the following command from the root of your React Native project:
 
-```sh
-# Using npm
-npm start
 
-# OR using Yarn
-yarn start
+# Astro Journal App
+
+## Overview
+Astro Journal is a React Native mobile app for daily horoscopes and journaling. Users can view horoscopes for any zodiac sign, write and save daily journal entries, and access their data offline. The app is built with a clean, scalable architecture for easy future enhancements.
+
+## Features
+- View daily horoscopes for all zodiac signs
+- Write & save daily journal entries (offline/local)
+- Toggle between zodiac signs
+- Responsive, clean UI
+- Modular, scalable folder structure
+- React Navigation for smooth transitions
+
+## Folder Structure
+```
+/src
+	/components
+	/screens
+	/services
+	/hooks
+	/utils
+	/store
+App.js
 ```
 
-## Step 2: Build and run your app
+## Tech Stack
+- React Native
+- Redux Toolkit (state management)
+- React Navigation (routing)
+- AsyncStorage (local persistence)
+- TypeScript (type safety)
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Setup & Run
+1. **Install dependencies:**
+	 ```sh
+	 npm install
+	 # or
+	 yarn install
+	 ```
+2. **Install required packages:**
+	 ```sh
+	 npm install @react-navigation/native @react-navigation/stack @react-native-async-storage/async-storage @react-native-picker/picker axios @reduxjs/toolkit react-redux
+	 # or
+	 yarn add @react-navigation/native @react-navigation/stack @react-native-async-storage/async-storage @react-native-picker/picker axios @reduxjs/toolkit react-redux
+	 ```
+3. **iOS setup:**
+	 ```sh
+	 cd ios && pod install && cd ..
+	 ```
+4. **Run the app:**
+	 ```sh
+	 npx react-native run-ios # for iOS
+	 npx react-native run-android # for Android
+	 ```
 
-### Android
+## UX Flow & Product Insights
+- **Home Screen:**
+	- Shows today’s date and horoscope for the selected zodiac sign
+	- Dropdown to choose zodiac sign
+	- Button to write a journal entry
+- **Journal Screen:**
+	- Editable input for the day’s journal entry
+	- Explicit save button (auto-save can be added)
+	- Shows previously saved entry if available
+- **Navigation:**
+	- React Navigation stack for Home and Journal screens
 
-```sh
-# Using npm
-npm run android
+### Growth & Future Enhancements
+- Push notification reminders to journal (using Expo Notifications)
+- Calendar view for past entries
+- Horoscope history and trends
+- Rich text journal editor
+- Cloud sync and backup
+- User authentication and profile
+- Theming and dark mode
+- Smooth animations and micro-interactions
 
-# OR using Yarn
-yarn android
-```
+## Recording
+Please refer to the attached video for a walkthrough of the app’s flow and features.
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Note:**
+- Do not commit `node_modules`.
+- The codebase is ready for further enhancements and scalable for new features.
