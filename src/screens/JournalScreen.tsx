@@ -3,10 +3,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
-  Button,
   StyleSheet,
   Alert,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import JournalInput from '../components/JournalInput';
@@ -49,7 +49,9 @@ export default function JournalScreen() {
     <View style={styles.container}>
       <Text style={styles.date}>{date}</Text>
       <JournalInput value={entry} onChange={setEntry} />
-      <Button title="Save" onPress={handleSave} />
+      <TouchableOpacity style={styles.saveButton} activeOpacity={0.85} onPress={handleSave}>
+        <Text style={styles.saveButtonText}>Save</Text>
+      </TouchableOpacity>
       {saved && <Text style={styles.saved}>Saved!</Text>}
       <View style={styles.entriesScrollContainer}>
         <ScrollView
@@ -63,8 +65,10 @@ export default function JournalScreen() {
                 .sort((a, b) => b.date.localeCompare(a.date))
                 .map(e => (
                   <View key={e.date} style={styles.entryItem}>
-                    <Text style={styles.entryDate}>{e.date}</Text>
-                    <Text style={styles.entryText}>{e.entry}</Text>
+                    <View style={styles.entryCard}>
+                      <Text style={styles.entryDate}>{e.date}</Text>
+                      <Text style={styles.entryText}>{e.entry}</Text>
+                    </View>
                   </View>
                 ))}
             </View>
@@ -78,18 +82,43 @@ export default function JournalScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 24, backgroundColor: '#f7f7f7' },
   date: { fontSize: 18, fontWeight: 'bold', marginBottom: 12 },
-  entriesList: { flex: 1, backgroundColor: '#fff', borderRadius: 8 },
+  entriesList: { flex: 1, backgroundColor: 'transparent' },
   entriesContent: { padding: 12, paddingBottom: 24 },
   entriesListContainer: {},
   entriesTitle: { fontWeight: 'bold', fontSize: 16, marginBottom: 8 },
   entryItem: {
-    marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-    paddingBottom: 6,
+    marginBottom: 16,
+  },
+  entryCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
   entryDate: { fontWeight: 'bold', color: '#555', fontSize: 13 },
   entryText: { color: '#222', fontSize: 15 },
-  saved: { color: 'green', marginTop: 8, fontWeight: 'bold' },
+  saved: { color: '#22c55e', marginTop: 8, fontWeight: 'bold', textAlign: 'center', fontSize: 16 },
+  saveButton: {
+    marginTop: 10,
+    backgroundColor: '#7c3aed',
+    borderRadius: 24,
+    paddingVertical: 14,
+    alignItems: 'center',
+    shadowColor: '#7c3aed',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.18,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  saveButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
+    letterSpacing: 1.1,
+  },
   entriesScrollContainer: { flex: 1, marginTop: 16 },
 });

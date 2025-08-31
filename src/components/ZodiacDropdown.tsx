@@ -26,6 +26,23 @@ export default function ZodiacDropdown({ selected, onChange }: Props) {
 }
 
 const styles = StyleSheet.create({
-  container: { marginVertical: 8, height: 100, borderWidth: 1 },
-  picker: { height: 44, width: '100%' },
+  container: {
+    marginVertical: 12,
+    borderRadius: 16,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+  },
+  picker: {
+    height: 56,
+    width: '100%',
+    color: '#3a3a3a',
+    fontSize: 18,
+    backgroundColor: 'transparent',
+  },
 });
